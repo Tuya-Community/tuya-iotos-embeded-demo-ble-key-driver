@@ -61,9 +61,12 @@ In this demo, we will show you how to implement a key driver. Based on the [Tuya
 ```
 ├── src         /* Source code files */
 |    ├── sdk
-|    |    └── tuya_uart_common_handler.c        /* Code for UART communication  */
+|    |    └── tuya_uart_common_handler.c        /* Code for UART communication */
 |    ├── driver
 |    |    └── tuya_key.c                        /* Touch sensor driver */
+|    ├── platform
+|    |    ├── tuya_gpio.c                       /* GPIO driver */
+|    |    └── tuya_timer.c                      /* Timer driver */
 |    ├── tuya_ble_app_demo.c                    /* Entry file of application layer */
 |    └── tuya_demo_key_driver.c                 /* Sample code */
 |
@@ -76,8 +79,11 @@ In this demo, we will show you how to implement a key driver. Based on the [Tuya
      |    └── custom_tuya_ble_config.h          /* Application configuration file */
      ├── driver
      |    └── tuya_key.h                        /* Touch sensor driver */
+     ├── platform
+     |    ├── tuya_gpio.h                       /* GPIO driver */
+     |    └── tuya_timer.h                      /* Timer driver */
      ├── tuya_ble_app_demo.h                    /* Entry file of application layer */
-     └── tuya_demo_key_driver.h                  /* Sample code */
+     └── tuya_demo_key_driver.h                 /* Sample code */
 ```
 
 <br>
@@ -109,17 +115,17 @@ The [Tuya IoT Platform](https://iot.tuya.com/) manages data through DPs. The dat
 
 - `Dp_type`: the data type. It is one byte.
 
-   ​ `#define DT_RAW 0`       raw type.
+    `#define DT_RAW 0`       raw type.
 
-   ​ `#define DT_BOOL 1`     Boolean type.
+    `#define DT_BOOL 1`     Boolean type.
 
-   ​ `#define DT_VALUE 2`   value type. The value range is specified when a DP of value type is created on the Tuya IoT Platform.
+    `#define DT_VALUE 2`   value type. The value range is specified when a DP of value type is created on the Tuya IoT Platform.
 
-   ​ `#define DT_STRING 3`   string type.
+    `#define DT_STRING 3`   string type.
 
-   ​ `#define DT_ENUM 4 `     enum type.
+    `#define DT_ENUM 4 `     enum type.
 
-   ​ `#define DT_BITMAP 5`  bitmap type.
+    `#define DT_BITMAP 5`  bitmap type.
 
 - `Dp_len`: It can be one byte or two bytes. Currently, Bluetooth only supports one byte, so the data of a single DP can be up to 255 bytes.
 

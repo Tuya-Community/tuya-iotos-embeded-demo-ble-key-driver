@@ -64,6 +64,9 @@
 |    |    └── tuya_uart_common_handler.c        /* UART通用对接实现代码 */
 |    ├── driver
 |    |    └── tuya_key.c                        /* 按键驱动 */
+|    ├── platform
+|    |    ├── tuya_gpio.c                       /* GPIO驱动 */
+|    |    └── tuya_timer.c                      /* Timer驱动 */
 |    ├── tuya_ble_app_demo.c                    /* 应用层入口文件 */
 |    └── tuya_demo_key_driver.c                 /* 按键驱动使用示例代码 */
 |
@@ -76,6 +79,9 @@
      |    └── custom_tuya_ble_config.h          /* 应用配置文件 */
      ├── driver
      |    └── tuya_key.h                        /* 按键驱动 */
+     ├── platform
+     |    ├── tuya_gpio.h                       /* GPIO驱动 */
+     |    └── tuya_timer.h                      /* Timer驱动 */
      ├── tuya_ble_app_demo.h                    /* 应用层入口文件 */
      └── tuya_demo_key_driver.h                	/* 按键驱动使用示例代码 */
 ```
